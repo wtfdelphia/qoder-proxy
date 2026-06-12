@@ -1,0 +1,13 @@
+# node --env-file=.env proxy.mjs
+# nohup node --env-file=.env proxy.mjs > /tmp/codex-bridge.log 2>&1 &
+# npm install -g pm2
+pm2 start "$(which npm)" \
+  --name qoder-proxy \
+  --cwd /home/openclaw/wtf_workspace/github/qoder-proxy \
+  --interpreter=node \
+  --node-args="--env-file=.env" \
+  -- start
+
+# pm2 status
+
+# pm2 logs

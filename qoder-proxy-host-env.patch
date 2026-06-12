@@ -1,0 +1,25 @@
+diff --git a/.env.example b/.env.example
+index 105d5c9..acaee05 100644
+--- a/.env.example
++++ b/.env.example
+@@ -1,6 +1,7 @@
+ # Copy this file to .env for local use only.
+ # Do not commit .env or share its contents.
+ 
++HOST=127.0.0.1
+ PORT=3000
+ PROXY_API_KEY=
+ 
+diff --git a/clean/server.js b/clean/server.js
+index de34f5e..ed997c3 100644
+--- a/clean/server.js
++++ b/clean/server.js
+@@ -2,7 +2,7 @@ const { createApp } = require('./app');
+ const { log } = require('./logger');
+ const { getCliBackend } = require('./qodercn-cli');
+ 
+-const HOST = '127.0.0.1';
++const HOST = process.env.HOST || '127.0.0.1';
+ const PORT = Number(process.env.PORT || 3000);
+ 
+ const app = createApp();
